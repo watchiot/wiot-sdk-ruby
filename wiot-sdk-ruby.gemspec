@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'wiot/sdk/version'
+require 'wiot-sdk-ruby/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "wiot-sdk-ruby"
-  spec.version       = Wiot::Sdk::VERSION
+  spec.version       = Wiot::VERSION
   spec.authors       = ["gorums"]
   spec.email         = ["acksecurity@hotmail.com"]
 
-  spec.summary       = %q{Watchiot SDK}
-  spec.description   = %q{Watchiot SDK is for agent use}
+  spec.summary       = %q{Watchiot Ruby SDK}
+  spec.description   = %q{Watchiot Ruby SDK is for agent}
   spec.homepage      = "http://www.watchiot.org"
   spec.license       = "MIT"
 

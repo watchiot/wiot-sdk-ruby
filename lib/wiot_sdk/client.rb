@@ -1,7 +1,7 @@
 require_relative 'request'
 require_relative 'response'
 
-module WiotSdkRuby
+module WiotSdk
 
   class Client
 

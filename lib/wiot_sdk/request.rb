@@ -4,7 +4,8 @@ require 'json'
 require_relative 'payload'
 require_relative 'response'
 
-module WiotSdkRuby
+module WiotSdk
+
   class Request
 
     BASE_URL = 'http://api.watchiot.org/'
@@ -24,4 +25,5 @@ module WiotSdkRuby
       p response.body
     end
   end
+
 end

@@ -1,4 +1,4 @@
-module WiotSdkRuby
+module WiotSdk
 
   class Response
 

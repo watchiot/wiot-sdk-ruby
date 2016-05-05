@@ -1,7 +1,6 @@
-require 'wiot_sdk_ruby/version'
-require 'wiot_sdk_ruby/client'
+require 'wiot_sdk/client'
 
-module WiotSdkRuby
+module WiotSdk
 
   def self.init(api_key, space, project)
     Config.init api_key, space, project

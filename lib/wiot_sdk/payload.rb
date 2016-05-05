@@ -1,4 +1,5 @@
-module WiotSdkRuby
+module WiotSdk
+
   class Payload
     def initialize
       @payload = {}
@@ -12,4 +13,5 @@ module WiotSdkRuby
       @payload
     end
   end
+
 end

@@ -1,3 +1,3 @@
-module WiotSdkRuby
+module WiotSdk
   VERSION = '0.1.0'
 end

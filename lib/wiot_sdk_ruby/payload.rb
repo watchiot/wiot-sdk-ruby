@@ -1,15 +1,15 @@
 module WiotSdkRuby
-  class Metric
+  class Payload
     def initialize
-      @metric = {}
+      @payload = {}
     end
 
     def add(key, value)
-      @metric[key] = value
+      @payload[key] = value
     end
 
-    def metric
-      @metric
+    def values
+      @payload
     end
   end
 end

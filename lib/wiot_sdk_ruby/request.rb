@@ -1,3 +1,9 @@
+require 'rest-client'
+require 'json'
+
+require_relative 'payload'
+require_relative 'response'
+
 module WiotSdkRuby
   class Request
 
@@ -9,10 +15,10 @@ module WiotSdkRuby
       @project = project
     end
 
-    def send(metric)
+    def send(payload)
       uri = BASE_URL + @space + '/' + @project
-      payload = '{ api: ' + @api_key + ', data: { ' + JSON.generate(metric.metric).to_s + '}'
-      response = RestClient.post uri, payload, content_type: 'json', accept: 'json'
+      data = '{ api: ' + @api_key + ', data: { ' + JSON.generate(payload.values).to_s + '}'
+      response = RestClient.post uri, data, content_type: 'json', accept: 'json'
 
       p response.code
       p response.body

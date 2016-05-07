@@ -79,7 +79,7 @@ project: "my_project"
 
 Now you are ready to send us a request with the metrics that you recollect.
 
-To fill the **metric** us provide you a *Metric class*
+To fill the **metric** we provide you a *Metric class*
 
 ```ruby
 require 'wiot_sdk/metric'
@@ -94,7 +94,7 @@ def fill_metric
  metric.add('my_paramN', 'my_malueN')
 end
 ```
-Whe you have the metric only you need send a request to us
+Whe you have the **metric** only you need send a **request** to us
 
 ```ruby
 
@@ -107,6 +107,10 @@ rescue => ex
  # 404, 401, etc
 end
 ```
+
+* Response
+ 
+* Errors
 
 ## License
 

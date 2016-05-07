@@ -1,4 +1,5 @@
 require 'wiot_sdk/client'
+require 'wiot_sdk/metric'
 
 module WiotSdk
 

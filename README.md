@@ -23,7 +23,7 @@ require 'wiot-sdk'
 ```
 it work too
 
-Now you have to set mandatory configuratios variables like the *api key*, * namespace* and *project name*
+Now you have to set mandatory configuratios variables like the **api key**, **namespace** and **project name**
  
 ```
 def init_sdk

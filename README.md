@@ -27,11 +27,11 @@ Now you have to set mandatory configuratios variables like the **api key**, **na
  
 ```ruby
 def init_sdk
-    my_api_key = 'asd123asd-23asd-123sda-1231234saa'
-    my_namespace = 'my_space'
-    my_project = 'my_project'
-    
-    sdk = WiotSdk.init my_api_key, my_namespace, my_project
+  my_api_key = 'asd123asd-23asd-123sda-1231234saa'
+  my_namespace = 'my_space'
+  my_project = 'my_project'
+  
+  sdk = WiotSdk.init my_api_key, my_namespace, my_project
 end
 ```
 
@@ -39,17 +39,17 @@ the other way is put the yml or json file path where this parameters are setting
 
 ```ruby
 def init_sdk
-    my_config_json = '/home/myhome/my_agent/my_agent.json'
-
-    sdk = WiotSdk.init my_config_json
+  my_config_json = '/home/myhome/my_agent/my_agent.json'
+ 
+  sdk = WiotSdk.init my_config_json
 end
 ```
 
 ```ruby
 def init_sdk
-    my_config_yml = '/home/myhome/my_agent/my_agent.yml'
-    
-    sdk = WiotSdk.init my_configyml
+  my_config_yml = '/home/myhome/my_agent/my_agent.yml'
+  
+  sdk = WiotSdk.init my_configyml
 end
 ```
 Example of config file
@@ -57,16 +57,16 @@ Example of config file
 * json
 ```json
 {
-    api_key: "asd123asd-23asd-123sda-1231234saa",
-    space  : "my_space",
-    project: "my_project"
+  api_key: "asd123asd-23asd-123sda-1231234saa",
+  space  : "my_space",
+  project: "my_project"
 }
 ```
 
 * yml
 ```yml
 api_key: "asd123asd-23asd-123sda-1231234saa"
-space: : "my_space"
+space  : "my_space"
 project: "my_project"
 ```
 

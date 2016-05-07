@@ -10,7 +10,7 @@ $ gem install wiot_sdk
 
 ## Usage
 
-First you need to add the dependence in your project *Gemfile*
+First you need to add the dependence in your *Gemfile* project 
 
 ```ruby
 gem 'wiot_sdk', '~> 0.1'
@@ -29,7 +29,8 @@ require 'wiot-sdk'
 ```
 it work too
 
-Now you have to set mandatory configuration variables that always will be send in each request. This parameters are:
+Now you have to initialice the **SDK** setting the mandatory configuration variables that always will be send in each request. This parameters are:
+
 **api key**, **name space** and **name project**
  
 ```ruby
@@ -56,7 +57,7 @@ end
 def init_sdk
   my_config_yml = '/home/myhome/my_agent/my_agent.yml'
   
-  client = WiotSdk.init my_configyml
+  client = WiotSdk.init my_config_yml
 end
 ```
 Example of config file

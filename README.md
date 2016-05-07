@@ -42,7 +42,7 @@ def init_sdk
 end
 ```
 
-the other way is put the yml or json file path where this parameters are setting 
+The other way is put it into configuration file **yml** or **json** format and then set the path where this parameters are setting. 
 
 ```ruby
 def init_sdk

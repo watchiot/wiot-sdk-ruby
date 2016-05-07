@@ -38,7 +38,7 @@ def init_sdk
   my_namespace = 'my_space'
   my_project = 'my_project'
   
-  sdk = WiotSdk.init my_api_key, my_namespace, my_project
+  client = WiotSdk.init my_api_key, my_namespace, my_project
 end
 ```
 
@@ -48,7 +48,7 @@ the other way is put the yml or json file path where this parameters are setting
 def init_sdk
   my_config_json = '/home/myhome/my_agent/my_agent.json'
  
-  sdk = WiotSdk.init my_config_json
+  client = WiotSdk.init my_config_json
 end
 ```
 
@@ -56,7 +56,7 @@ end
 def init_sdk
   my_config_yml = '/home/myhome/my_agent/my_agent.yml'
   
-  sdk = WiotSdk.init my_configyml
+  client = WiotSdk.init my_configyml
 end
 ```
 Example of config file
@@ -75,6 +75,37 @@ Example of config file
 api_key: "asd123asd-23asd-123sda-1231234saa"
 space  : "my_space"
 project: "my_project"
+```
+
+Now you are ready to send us a request with the metrics that you recollect.
+
+To fill the **metric** us provide you a *Metric class*
+
+```ruby
+require 'wiot_sdk/metric'
+
+def fill_metric
+ metric = Metric.new
+ 
+ metric.add('my_param1', 'my_malue1')
+ metric.add('my_param2', 'my_malue2')
+ metric.add('my_param3', 'my_malue3')
+ ...
+ metric.add('my_paramN', 'my_malueN')
+end
+```
+Whe you have the metric only you need send a request to us
+
+```ruby
+
+def request
+ client = init_sdk
+ metric = fill_metric
+ 
+ response = client.send metric
+rescue => ex
+ # 404, 401, etc
+end
 ```
 
 ## License

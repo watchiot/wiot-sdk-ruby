@@ -4,7 +4,7 @@ If you want to create an monitor agent in Ruby we suggest use this gem, it conta
 
 ## Install
 
-```
+```bash
 $ gem install wiot_sdk
 ```
 
@@ -12,20 +12,20 @@ $ gem install wiot_sdk
 
 You have to require the sdk
 
-```
+```ruby
 require 'wiot_sdk'
 ```
 
 or
 
-```
+```ruby
 require 'wiot-sdk'
 ```
 it work too
 
 Now you have to set mandatory configuratios variables like the **api key**, **name space** and **name project**
  
-```
+```ruby
 def init_sdk
     my_api_key = 'asd123asd-23asd-123sda-1231234saa'
     my_namespace = 'my_space'
@@ -37,7 +37,7 @@ end
 
 the other way is put the yml or json file path where this parameters are setting 
 
-```
+```ruby
 def init_sdk
     my_config_json = '/home/myhome/my_agent/my_agent.json'
 
@@ -45,7 +45,7 @@ def init_sdk
 end
 ```
 
-```
+```ruby
 def init_sdk
     my_config_yml = '/home/myhome/my_agent/my_agent.yml'
     
@@ -55,16 +55,16 @@ end
 Example of config file
 
 * json
-```
+```json
 {
-    api_key: "asd123asd-23asd-123sda-1231234saa"
-    space: : "my_space"
+    api_key: "asd123asd-23asd-123sda-1231234saa",
+    space  : "my_space",
     project: "my_project"
 }
 ```
 
 * yml
-```
+```yml
 api_key: "asd123asd-23asd-123sda-1231234saa"
 space: : "my_space"
 project: "my_project"

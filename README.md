@@ -1,6 +1,6 @@
 # Watchiot SDK for Ruby
 
-If you want to create an monitor agent in Ruby we suggest use this gem, it contains easy way to interact with our api.
+If you want to create an monitor agent in **Ruby** we suggest use this **gem**, it contains easy way to interact with our api.
 
 ## Install
 
@@ -8,9 +8,15 @@ If you want to create an monitor agent in Ruby we suggest use this gem, it conta
 $ gem install wiot_sdk
 ```
 
-## Description
+## Usage
 
-You have to require the sdk
+First you need to add the dependence in your project *Gemfile*
+
+```ruby
+gem 'wiot_sdk', '~> 0.1'
+```
+
+Then you have to require the sdk where are you going to use it
 
 ```ruby
 require 'wiot_sdk'
@@ -23,7 +29,8 @@ require 'wiot-sdk'
 ```
 it work too
 
-Now you have to set mandatory configuratios variables like the **api key**, **name space** and **name project**
+Now you have to set mandatory configuration variables that always will be send in each request. This parameters are:
+**api key**, **name space** and **name project**
  
 ```ruby
 def init_sdk

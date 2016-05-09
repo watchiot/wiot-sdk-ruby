@@ -19,10 +19,18 @@ module WiotSdk
     def send(metric)
       uri = BASE_URL + @space + '/' + @project
       payload = '{ api: ' + @api_key + ', data: { ' + JSON.generate(metric.values).to_s + '}'
-      response = RestClient.post uri, payload, content_type: 'json', accept: 'json'
 
-      p response.code
-      p response.body
+      req uri, payload
+    rescue => ex
+      Response.new 500, ex.message
+    end
+
+    private
+
+    def req(url, payload)
+      response = RestClient.post url, payload, content_type: 'json', accept: 'json'
+
+      Response.new response.code
     end
   end
 

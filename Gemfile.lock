@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wiot_sdk_ruby (0.1.0)
+    wiot_sdk (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -43,7 +43,7 @@ DEPENDENCIES
   rake (~> 10.0)
   rest-client (~> 1.8)
   rspec (~> 3.0)
-  wiot_sdk_ruby!
+  wiot_sdk!
 
 BUNDLED WITH
    1.12.1

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/watchiot/wiot-sdk-ruby.svg?branch=master)](https://travis-ci.org/watchiot/wiot-sdk-ruby)
+
 # Watchiot SDK for Ruby
 
 If you want to create an monitor agent in **Ruby** we suggest use this **gem**, it contains easy way to interact with our api.

@@ -106,14 +106,134 @@ def request
  metric = fill_metric
  
  response = client.send metric
-rescue => ex
- # 404, 401, etc
 end
 ```
 
 * Response
  
+If all was fine you are going to recive
+
+```http
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 16 Nov 2016 21:03:12 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+Rate-Limit: 800
+Rate-Remaining: 745
+Rate-Reset: 2150085394
+Content-Length: 5 
+```
+```ruby
+
+def request
+ client = init_sdk
+ metric = fill_metric
+ 
+ response = client.send metric
+ puts response.code
+end
+```
+
+OUTPUT: 200
+
+* Rate limit
+
+ Rate-Limit: 60 The maximum number of requests per hour.
+ Rate-Remaining: 56 The number of requests remaining in the current rate limit window.
+ Rate-Reset: 1372700873 The time at which the current rate limit window reset in miliseconds.
+
+GET /rate_limit
+
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+X-RateLimit-Reset: 1372700873
+
+{
+  "resources": {
+    "core": {
+      "limit": 5000,
+      "remaining": 4999,
+      "reset": 1372700873
+    },
+    "search": {
+      "limit": 30,
+      "remaining": 18,
+      "reset": 1372697452
+    }
+  },
+  "rate": {
+    "limit": 5000,
+    "remaining": 4999,
+    "reset": 1372700873
+  }
+}
+
+
 * Errors
+
+Sending invalid JSON will result in a 400 Bad Request response.
+
+ HTTP/1.1 400 Bad Request
+ Content-Length: 35
+
+ {"message":"Problems parsing JSON"}
+ 
+ Sending the wrong type of JSON values will result in a 400 Bad Request response.
+
+ HTTP/1.1 400 Bad Request
+ Content-Length: 40
+
+ {"message":"Body should be a valid JSON"}
+
+ Sending invalid fields will result in a 422 Unprocessable Entity response.
+
+ HTTP/1.1 422 Unprocessable Entity
+ Content-Length: 149
+
+ {
+   "message": "Validation Failed",
+   "errors": [
+     {
+       "field": "title",
+       "code": "missing_field"
+     }
+   ]
+ }
+ 
+ HTTP/1.1 401 Unauthorized
+
+{
+  "message": "Bad credentials"
+}
+
+HTTP/1.1 403 Forbidden
+Content-Type: application/json; charset=utf-8
+Connection: close
+
+{
+  "message": "You have been temporarily blocked for have an abuse behavior. Please retry your request more later."
+}
+
+HTTP/1.1 403 Forbidden
+
+{
+  "message": "Maximum number of login attempts exceeded. Please try again later."
+}
+
+HTTP/1.1 403 Forbidden
+Date: Tue, 20 Aug 2013 14:50:41 GMT
+Status: 403 Forbidden
+Rate-Limit: 800
+Rate-Remaining: 0
+Rate-Reset: 1377013266
+
+{
+   "message": "API rate limit exceeded"
+}
+
 
 ## License
 

@@ -4,17 +4,12 @@ require 'wiot_sdk/response/rate'
 module WiotSdk
 
   class Response
-    def initialize(response)
-      @code = response.code
+    def initialize(response, code = nil, message = nil)
+      @code = code || response.code
       @rate = Rate.new response.headers
 
-      @message = parser_message response.body
+      @message = message || parser_message(response.body)
       @errors = Errors.new response.body
-    end
-
-    def initialize(code, message)
-      @code = code
-      @message = message
     end
 
     def code

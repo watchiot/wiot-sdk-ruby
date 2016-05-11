@@ -30,7 +30,7 @@ module WiotSdk
     def req(url, payload)
       response = RestClient.post url, payload, content_type: 'json', accept: 'json'
 
-      Response.new response.code
+      Response.new response
     end
   end
 

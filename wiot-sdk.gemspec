@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'wiot_sdk/version'
+require 'wiot-sdk/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'wiot_sdk'
+  spec.name          = 'wiot-sdk'
   spec.version       = WiotSdk::VERSION
   spec.authors       = ['watchiot']
   spec.email         = ['dev@watchiot.com']

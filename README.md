@@ -8,7 +8,7 @@ If you want to create an monitor agent in **Ruby** we suggest use this **gem**, 
 ## Install
 
 ```bash
-$ gem install wiot_sdk
+$ gem install wiot-sdk
 ```
 
 ## Usage
@@ -16,21 +16,14 @@ $ gem install wiot_sdk
 First you need to add the dependence in your *Gemfile* project 
 
 ```ruby
-gem 'wiot_sdk', '~> 0.1'
+gem 'wiot-sdk', '~> 0.1'
 ```
 
 Then you have to require the sdk where are you going to use it
 
 ```ruby
-require 'wiot_sdk'
-```
-
-or
-
-```ruby
 require 'wiot-sdk'
 ```
-it work too
 
 Now you have to initialice the **SDK** setting the mandatory configuration variables that always will be send in each request. This parameters are:
 

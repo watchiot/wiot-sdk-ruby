@@ -1,5 +1,5 @@
 module WiotSdk
-  module Response
+  module Data
     class Rate
       def initialize(header)
         parser_rate header

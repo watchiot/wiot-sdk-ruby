@@ -1,5 +1,5 @@
 module WiotSdk
-  module Response
+  module Data
     class Errors
       def initialize(body)
         @errors = parser_errors body

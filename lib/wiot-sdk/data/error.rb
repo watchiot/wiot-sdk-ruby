@@ -1,5 +1,5 @@
 module WiotSdk
-  module Response
+  module Data
     class Error
       def initialize(field, msg)
         @field = field

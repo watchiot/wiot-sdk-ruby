@@ -1,2 +1,18 @@
-# we can use the two ways'
-require 'wiot_sdk'
+require 'wiot-sdk/client'
+require 'wiot-sdk/metric'
+
+module WiotSdk
+
+  def self.init(api_key, space, project)
+    Client.init api_key, space, project
+  end
+
+  def self.init_yaml(file_path)
+    Client.init_yaml file_path
+  end
+
+  def self.init_json(file_path)
+    Client.init_json file_path
+  end
+
+end

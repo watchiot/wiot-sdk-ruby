@@ -1,5 +1,5 @@
-require 'wiot_sdk/response/errors'
-require 'wiot_sdk/response/rate'
+require 'wiot-sdk/data/errors'
+require 'wiot-sdk/data/rate'
 
 module WiotSdk
 
@@ -38,4 +38,5 @@ module WiotSdk
       body
     end
   end
+
 end

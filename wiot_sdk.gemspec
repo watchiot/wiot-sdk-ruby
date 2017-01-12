@@ -6,12 +6,12 @@ require 'wiot_sdk/version'
 Gem::Specification.new do |spec|
   spec.name          = 'wiot_sdk'
   spec.version       = WiotSdk::VERSION
-  spec.authors       = ['gorums']
-  spec.email         = ['acksecurity@hotmail.com']
+  spec.authors       = ['watchiot']
+  spec.email         = ['dev@watchiot.com']
 
   spec.summary       = %q{Watchiot SDK}
   spec.description   = %q{Watchiot SDK is for agent}
-  spec.homepage      = 'http://www.watchiot.org'
+  spec.homepage      = 'http://www.watchiot.com'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

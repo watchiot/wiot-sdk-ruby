@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'wiot-sdk/version'
 
 describe WiotSdk do
   it 'has a version number' do

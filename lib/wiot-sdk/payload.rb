@@ -1,17 +1,19 @@
 module WiotSdk
 
-  class Metric
+  class Payload
     def initialize
       @metric = {}
     end
 
-    def add(key, value)
+    def addMetric(key, value)
       @metric[key] = value
     end
 
     def values
       @metric
     end
+
+
   end
 
 end

@@ -8,20 +8,20 @@ module WiotSdk
 
   class Client
 
-    def self.init_yaml(file_path)
-      api_key, space, project = WiotSdk::Config::ParserYml.parser file_path
+    def self.init_yaml(file_path, base_url)
+      username, api_key, space, project = WiotSdk::Config::ParserYml.parser file_path
 
-      Request.new api_key, space, project
+      Request.new username, api_key, space, project, base_url
     end
 
-    def self.init_json(file_path)
-      api_key, space, project = WiotSdk::Config::ParserJson.parser file_path
+    def self.init_json(file_path, base_url)
+      username, api_key, space, project = WiotSdk::Config::ParserJson.parser file_path
 
-      Request.new api_key, space, project
+      Request.new username, api_key, space, project, base_url
     end
 
-    def self.init(api_key, space, project)
-      Request.new api_key, space, project
+    def self.init(username, api_key, space, project, base_url)
+      Request.new username, api_key, space, project, base_url
     end
   end
 

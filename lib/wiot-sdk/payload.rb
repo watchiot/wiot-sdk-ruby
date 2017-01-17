@@ -1,3 +1,5 @@
+require 'json'
+
 module WiotSdk
 
   class Payload
@@ -9,11 +11,10 @@ module WiotSdk
       @metric[key] = value
     end
 
-    def values
-      @metric
+    def to_s
+      payload = { metrics: @metric }
+      payload.to_json
     end
-
-
   end
 
 end

@@ -21,7 +21,7 @@ module WiotSdk
 
       req uri, payload.to_s
     rescue => ex
-      Response.new nil, 500, ex.message
+      Response.new ex.response
     end
 
     private

@@ -1,41 +1,31 @@
-require 'wiot-sdk/data/errors'
-require 'wiot-sdk/data/rate'
+require 'wiot-sdk/rate_limit'
 
 module WiotSdk
 
   class Response
-    def initialize(response, code = nil, message = nil)
-      @code = code || response.code
-      @rate = Rate.new response.headers
+    def initialize(response)
+      @code = response.code
 
-      @message = message || parser_message(response.body)
-      @errors = Errors.new response.body
+      @msg  = response.msg if @code != 200
+      @error = response.error if @code != 200
+
+      @rate_limit = WiotSdk::RateLimit.new response.headers
     end
 
     def code
       @code
     end
 
-    def rate
-      @rate
+    def rate_limit
+      @rate_limit
     end
 
-    def message
-      @message
+    def msg
+      @msg
     end
 
-    def errors
-      @errors
-    end
-
-    def has_errors?
-      !@errors.nil? && @errors.has_errors?
-    end
-
-    private
-
-    def parser_message(body)
-      body
+    def error
+      @error
     end
   end
 

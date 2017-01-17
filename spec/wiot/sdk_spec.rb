@@ -14,10 +14,11 @@ describe WiotSdk do
         base_url: 'http://0.0.0.0:3002'
     )
 
-    metric = WiotSdk::Metric.new
-    metric.add('free_space', 20)
+    payload = WiotSdk::Payload.new
+    payload.addMetric('server_name1', 'my_server1')
+    payload.addMetric('free_space', 18)
 
-    response = client.send(metric)
+    response = client.send(payload)
     expect(response).not_to be nil
   end
 end

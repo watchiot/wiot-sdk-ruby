@@ -5,6 +5,7 @@ describe WiotSdk do
     expect(WiotSdk::VERSION).not_to be nil
   end
 
+=begin
   it 'send  a request' do
     client = WiotSdk.init(
         username: 'go_',
@@ -21,4 +22,5 @@ describe WiotSdk do
     response = client.send(payload)
     expect(response).not_to be nil
   end
+=end
 end

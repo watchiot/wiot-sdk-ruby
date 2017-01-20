@@ -1,11 +1,10 @@
 require 'json'
-require 'wiot-sdk/rate_limit'
 
 module WiotSdk
 
   class Response
     def initialize(response)
-      @rate_limit = WiotSdk::RateLimit.new response.headers
+      @rate_limit = parse_rate response.headers
 
       response = JSON.parse(JSON.parse(response, :quirks_mode => true))
 
@@ -28,6 +27,17 @@ module WiotSdk
 
     def error
       @error
+    end
+
+    private
+
+    def parse_rate(headers)
+      {
+          limit:        headers[:x_ratelimit_limit],
+          remaining:    headers[:x_ratelimit_remaining],
+          reset:        headers[:x_ratelimit_reset],
+          retry_after:  headers[:x_retry_after] || nil
+      }
     end
   end
 

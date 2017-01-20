@@ -1,22 +1,28 @@
 module WiotSdk
     class RateLimit
       def initialize(headers)
-        @rate_limit = headers[:x_ratelimit_limit]
-        @rate_remaining = headers[:x_ratelimit_remaining]
-        @rate_reset = headers[:x_ratelimit_reset]
+        @rate = {
+          limit:        headers[:x_ratelimit_limit],
+          remaining:    headers[:x_ratelimit_remaining],
+          reset:        headers[:x_ratelimit_reset],
+          retry_after:  headers[:x_retry_after] || nil
+        }
       end
 
-      def rate_limit
-        @rate_limit
+      def limit
+        @rate[:limit]
       end
 
-      def rate_remaining
-        @rate_remaining
+      def remaining
+        @rate[:remaining]
       end
 
-      def rate_reset
-        @rate_reset
+      def reset
+        @rate[:reset]
       end
 
+      def retry_after
+        @rate[:retry_after]
+      end
     end
 end

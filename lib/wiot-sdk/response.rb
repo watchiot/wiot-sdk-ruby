@@ -1,15 +1,17 @@
+require 'json'
 require 'wiot-sdk/rate_limit'
 
 module WiotSdk
 
   class Response
     def initialize(response)
-      @code = response.code
-
-      @msg  = response.msg if @code != 200
-      @error = response.error if @code != 200
-
       @rate_limit = WiotSdk::RateLimit.new response.headers
+
+      response = JSON.parse(JSON.parse(response, :quirks_mode => true))
+
+      @code   = response['code']
+      @msg    = response['msg']
+      @error  = response['error'] || nil
     end
 
     def code

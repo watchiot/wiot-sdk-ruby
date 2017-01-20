@@ -15,7 +15,7 @@ describe WiotSdk do
     )
 
     payload = WiotSdk::Payload.new
-    payload.addMetric('server_name1', 'my_server1')
+    payload.addMetric('server_name', 'my_server1')
     payload.addMetric('free_space', 18)
 
     response = client.send(payload)

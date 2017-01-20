@@ -1,5 +1,6 @@
 module WiotSdk
     class RateLimit
+
       def initialize(headers)
         @rate = {
           limit:        headers[:x_ratelimit_limit],

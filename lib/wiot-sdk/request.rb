@@ -15,7 +15,7 @@ module WiotSdk
     end
 
     def send(payload)
-      response = RestClient.post url, payload.to_s,
+      response = RestClient.post @uri, payload.to_s,
                                  Authorization: "#{@username} #{@api_key}",
                                  content_type: 'json',
                                  accept: 'json'

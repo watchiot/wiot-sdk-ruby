@@ -11,29 +11,19 @@ module WiotSdk
     def initialize(username, api_key, space, project, base_url)
       @username = username
       @api_key = api_key
-      @space = space
-      @project = project
-      @base_url = base_url
+      @uri = base_url + '/' + space + '/' + project
     end
 
     def send(payload)
-      uri = @base_url + '/' + @space + '/' + @project
-
-      req uri, payload.to_s
-    rescue => ex
-      Response.new ex.response
-    end
-
-    private
-
-    def req(url, payload)
-      response = RestClient.post url, payload,
+      response = RestClient.post url, payload.to_s,
                                  Authorization: "#{@username} #{@api_key}",
                                  content_type: 'json',
                                  accept: 'json'
 
       Response.new response
+    rescue => ex
+      Response.new ex.response
     end
-  end
 
+  end
 end

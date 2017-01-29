@@ -8,6 +8,10 @@ module WiotSdk
 
   class Client
 
+    def self.init(username, api_key, space, project, base_url)
+      Request.new username, api_key, space, project, base_url
+    end
+
     def self.init_yaml(file_path, base_url)
       username, api_key, space, project = WiotSdk::Config::ParserYml.parser file_path
 
@@ -19,10 +23,5 @@ module WiotSdk
 
       Request.new username, api_key, space, project, base_url
     end
-
-    def self.init(username, api_key, space, project, base_url)
-      Request.new username, api_key, space, project, base_url
-    end
   end
-
 end
